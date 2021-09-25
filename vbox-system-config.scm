@@ -48,6 +48,8 @@
    ;; (target "/dev/sda") ;; not sure why target was deprecated, nothing in the docs about it
    (targets '("/dev/sda"))
    (keyboard-layout keyboard-layout)))
+ ;; TODO device by label to make more portable, then need to figure out how to label devices on
+ ;; install
  (swap-devices
   (list (uuid "6bb1960f-ff60-4053-8f72-5b4b77eedb48")))
  (file-systems

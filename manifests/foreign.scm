@@ -1,9 +1,15 @@
 (specifications->manifest
- '("agda"
-   "guix"
-   "guile"
-   "nyxt"
-   "glibc-locales"
-   "emacs"
-   "emacs-guix"
-   "emacs-agda2-mode"))
+ (append
+  ;; misc
+  '("agda"
+    "guix"
+    "guile"
+    "glibc-locales"
+    "nyxt")
+
+  ;; emacs
+  '("emacs"
+    "emacs-guix"
+    "emacs-geiser"
+    "emacs-agda2-mode"
+    "emacs-vterm")))
