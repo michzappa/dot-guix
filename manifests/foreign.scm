@@ -1,0 +1,9 @@
+(specifications->manifest
+ '("agda"
+   "guix"
+   "guile"
+   "nyxt"
+   "glibc-locales"
+   "emacs"
+   "emacs-guix"
+   "emacs-agda2-mode"))
