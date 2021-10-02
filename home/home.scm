@@ -2,23 +2,31 @@
              (gnu home-services)
              (gnu home-services shells)
              (gnu packages admin)
+             (gnu packages emacs-xyz)
+             (gnu packages gnuzilla)
              (gnu packages package-management)
+             (gnu packages rust-apps)
              (gnu packages web-browsers)
              (mz-guix packages agda))
 
 ;; figure out symlink management for other config
+;; add aliases to shell for common guix things (system/home reconfigure)
 (home-environment
- (packages '(
-             agda-2.6.2
-             ;; TODO emacs-agda2-mode-2.6.2 -- figure out how to add guix-home to EMACSLOADPATH
-             flatpak
-             icecat
-             neofetch
-             nyxt
-             ripgrep
-             ))
+ (packages (list agda-2.6.2
+                 emacs-agda2-mode-2.6.2
+                 emacs-vterm
+                 flatpak
+                 icecat
+                 neofetch
+                 nyxt
+                 ripgrep))
  (services
   (list
    (service home-bash-service-type
             (home-bash-configuration
-             (guix-defaults? #t))))))
+             (guix-defaults? #t)
+             (environment-variables '(("EDITOR" . "\"emacsclient -t\"")
+                                      ("VISUAL" . "\"emacsclient -c\"")))
+             (bash-profile '("\
+export EMACSLOADPATH=$HOME/.guix-home/profile/share/emacs/site-lisp:$EMACSLOADPATH"))
+             (bashrc '()))))))

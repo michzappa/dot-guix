@@ -7,6 +7,9 @@
  (gnu services xorg)
  (gnu packages emacs)
  (gnu packages emacs-xyz)
+ (gnu packages fontutils)
+ (gnu packages fonts)
+ (gnu packages ghostscript)
  (gnu packages gnuzilla)
  (gnu packages linux)
  (gnu packages ssh)
@@ -33,16 +36,20 @@
   (packages
    (append
     (list (specification->package "nss-certs")
-          bluez
           git
           emacs
-          emacs-vterm
+          fontconfig
+          font-dejavu
+          font-gnu-freefont
+          font-adobe-source-han-sans
+          gs-fonts
           openssh)
     %base-packages))
   (services
    (append
     (list (service gnome-desktop-service-type)
-          (bluetooth-service #:auto-enable? #t) ;; doesn't really work, at least with GNOME
+          (bluetooth-service #:auto-enable? #t) ;; doesn't really work, at
+                                                ;; least with GNOME
           (service cups-service-type)
           (set-xorg-configuration
            (xorg-configuration
