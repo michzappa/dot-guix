@@ -7,13 +7,16 @@
              (gnu packages package-management)
              (gnu packages rust-apps)
              (gnu packages web-browsers)
-             (mz-guix packages agda))
+             (mz-guix packages agda)
+             (mz-guix packages emacs-xyz))
 
 ;; figure out symlink management for other config
 ;; add aliases to shell for common guix things (system/home reconfigure)
 (home-environment
  (packages (list agda-2.6.2
                  emacs-agda2-mode-2.6.2
+                 emacs-geiser
+                 emacs-guix
                  emacs-vterm
                  flatpak
                  icecat
@@ -29,4 +32,6 @@
                                       ("VISUAL" . "\"emacsclient -c\"")))
              (bash-profile '("\
 export EMACSLOADPATH=$HOME/.guix-home/profile/share/emacs/site-lisp:$EMACSLOADPATH"))
-             (bashrc '()))))))
+             (bashrc '("\
+alias reconfigure-system-xps=\"sudo guix system reconfigure $HOME/.config/guix/system/xps.scm\"
+alias reconfigure-home=\"guix home reconfigure $HOME/.config/guix/home/home.scm\"")))))))
