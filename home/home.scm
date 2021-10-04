@@ -34,4 +34,5 @@
 export EMACSLOADPATH=$HOME/.guix-home/profile/share/emacs/site-lisp:$EMACSLOADPATH"))
              (bashrc '("\
 alias reconfigure-system-xps=\"sudo guix system reconfigure $HOME/.config/guix/system/xps.scm\"
+alias reconfigure-system-vbox=\"sudo guix system reconfigure $HOME/.config/guix/system/vbox.scm\"
 alias reconfigure-home=\"guix home reconfigure $HOME/.config/guix/home/home.scm\"")))))))

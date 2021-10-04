@@ -9,6 +9,7 @@
  (gnu packages fontutils)
  (gnu packages fonts)
  (gnu packages ghostscript)
+ (gnu packages gnome)
  (gnu packages gnuzilla)
  (gnu packages emacs)
  (gnu packages ssh)
@@ -32,19 +33,20 @@
    (append
     (list (specification->package "nss-certs")
           git
+          gnome-tweaks ;; at system level because gnome is at system level
           emacs
           fontconfig
           font-dejavu
           font-gnu-freefont
           font-adobe-source-han-sans
-          gs-fonts
+          gs-fonts ;; perhaps evaluate necessity of all the font packages
           openssh)
     %base-packages))
   (services
    (append
     (list (service gnome-desktop-service-type)
           (bluetooth-service #:auto-enable? #t) ;; doesn't really work, at
-          ;; least with GNOME
+                                                 ;; least with GNOME
           (service cups-service-type)
           (set-xorg-configuration
            (xorg-configuration
@@ -56,7 +58,6 @@
     ;; (target "/dev/sda") ;; not sure why target was deprecated, nothing in the docs about it
     (targets '("/dev/sda"))
     (keyboard-layout keyboard-layout)))
-  ;; TODO label swap
   (swap-devices
    (list "/dev/sda2"))
   (file-systems
