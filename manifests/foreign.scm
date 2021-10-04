@@ -1,3 +1,4 @@
+;; the packages I want in a foreign guix installation
 (specifications->manifest
  (append
   ;; misc

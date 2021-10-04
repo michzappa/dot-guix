@@ -49,7 +49,7 @@
    (append
     (list (service gnome-desktop-service-type)
           (bluetooth-service #:auto-enable? #t) ;; doesn't really work, at
-                                                ;; least with GNOME
+          ;; least with GNOME
           (service cups-service-type)
           (set-xorg-configuration
            (xorg-configuration
@@ -61,16 +61,15 @@
     (targets (list "/boot/efi"))
     (keyboard-layout keyboard-layout)))
   (swap-devices
-   (list (uuid "ad923e3a-6955-4319-869d-57e6aa257806")))
+   (list (file-system-label "swap")))
   (file-systems
    (cons* (file-system
             (mount-point "/boot/efi")
-            (device (uuid "D85D-8718" 'fat32))
+            (device (file-system-label "boot"))
             (type "vfat"))
           (file-system
             (mount-point "/")
             (device
-             (uuid "cf8566b3-1937-4362-a2e6-358177c96907"
-                   'ext4))
+             (file-system-label "root"))
             (type "ext4"))
           %base-file-systems)))
