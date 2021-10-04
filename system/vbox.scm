@@ -5,15 +5,17 @@
  (gnu services xorg)
  (gnu services networking)
  (gnu services ssh)
- (gnu packages version-control)
+ (gnu packages emacs)
  (gnu packages fontutils)
  (gnu packages fonts)
  (gnu packages ghostscript)
  (gnu packages gnome)
  (gnu packages gnuzilla)
- (gnu packages emacs)
+ (gnu packages lisp)
  (gnu packages ssh)
- (gnu packages web-browsers))
+ (gnu packages version-control)
+ (gnu packages web-browsers)
+ (gnu packages wm))
 
 (operating-system
   (locale "en_US.utf8")
@@ -33,25 +35,32 @@
    (append
     (list (specification->package "nss-certs")
           git
-          gnome-tweaks ;; at system level because gnome is at system level
+          ;; gnome-tweaks ;; at system level because gnome is at system level
           emacs
           fontconfig
           font-dejavu
           font-gnu-freefont
           font-adobe-source-han-sans
           gs-fonts ;; perhaps evaluate necessity of all the font packages
-          openssh)
+          openssh
+          sbcl
+          stumpwm
+          `(,stumpwm "lib"))
     %base-packages))
   (services
    (append
-    (list (service gnome-desktop-service-type)
-          (bluetooth-service #:auto-enable? #t) ;; doesn't really work, at
-                                                 ;; least with GNOME
-          (service cups-service-type)
-          (set-xorg-configuration
-           (xorg-configuration
-            (keyboard-layout keyboard-layout))))
-    %desktop-services))
+    (list
+     ;; (service gnome-desktop-service-type)
+     (service slim-service-type)
+
+     (bluetooth-service #:auto-enable? #t) ;; doesn't really work, at
+     ;; least with GNOME
+     (service cups-service-type)
+     (set-xorg-configuration
+      (xorg-configuration
+       (keyboard-layout keyboard-layout))))
+    (modify-services %desktop-services
+      (delete gdm-service-type))))
   (bootloader
    (bootloader-configuration
     (bootloader grub-bootloader)
