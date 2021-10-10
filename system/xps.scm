@@ -6,7 +6,6 @@
  (gnu services ssh)
  (gnu services xorg)
  (gnu packages emacs)
- (gnu packages emacs-xyz)
  (gnu packages fontutils)
  (gnu packages fonts)
  (gnu packages ghostscript)
