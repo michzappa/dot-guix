@@ -5,7 +5,10 @@
   '("agda"
     "guile"
     "glibc-locales"
-    "nyxt")
+    "nyxt"
+    "ripgrep"
+    "spotifyd"
+    "stow")
 
   ;; emacs
   '("emacs"
