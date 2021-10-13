@@ -1,19 +1,28 @@
 (use-modules
- (gnu)
- (gnu services cups)
+ (gnu bootloader)
+ (gnu bootloader grub)
+ (gnu packages)
+ (gnu packages audio)
+ (gnu packages admin)
+ (gnu packages certs)
+ (gnu packages emacs)
+ (gnu packages fontutils)
+ (gnu packages fonts)
+ (gnu packages gnuzilla)
+ (gnu packages linux)
+ (gnu packages lisp)
+ (gnu packages pulseaudio)
+ (gnu packages ssh)
+ (gnu packages version-control)
+ (gnu packages web-browsers)
+ (gnu packages wm)
+ (gnu packages xorg)
  (gnu services desktop)
  (gnu services networking)
  (gnu services ssh)
  (gnu services xorg)
- (gnu packages emacs)
- (gnu packages fontutils)
- (gnu packages fonts)
- (gnu packages ghostscript)
- (gnu packages gnuzilla)
- (gnu packages linux)
- (gnu packages ssh)
- (gnu packages version-control)
- (gnu packages web-browsers)
+ (gnu system keyboard)
+ (gnu system file-systems)
  (nongnu packages linux))
 
 (operating-system
@@ -34,22 +43,25 @@
                 %base-user-accounts))
   (packages
    (append
-    (list (specification->package "nss-certs")
-          git
+    ;; TODO check if any of these packages are included from the services
+    (list bluez
+          bluez-alsa
           emacs
           fontconfig
-          font-dejavu
           font-gnu-freefont
-          font-adobe-source-han-sans
-          gs-fonts
-          openssh)
+          font-google-noto
+          git
+          nss-certs
+          openssh
+          pulseaudio
+          stumpwm
+          tree
+          xterm)
     %base-packages))
   (services
    (append
     (list (service gnome-desktop-service-type)
-          (bluetooth-service #:auto-enable? #t) ;; doesn't really work, at
-          ;; least with GNOME
-          (service cups-service-type)
+          (bluetooth-service #:auto-enable? #t)
           (set-xorg-configuration
            (xorg-configuration
             (keyboard-layout keyboard-layout))))
