@@ -11,9 +11,10 @@
              (gnu packages web-browsers)
              (mz-guix packages rust-apps))
 
-;; TODO figure out symlink management for other config: spotifyd, git, stumpwm, freetube
-;; TODO can I have other manifests add packages?
-;; TODO stumpwm contrib packages, package the volume control and add to stump config
+;; TODO can I have other manifests add packages? to tie closer to a foreign
+;; installation
+;; TODO stumpwm contrib packages, package the volume control and
+;; add to stump config
 (home-environment
  (packages (list agda
                  calibre
