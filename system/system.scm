@@ -23,11 +23,13 @@
  (gnu services xorg)
  (gnu system keyboard)
  (gnu system file-systems)
- (nongnu packages linux))
+ (nongnu packages linux)
+ (nongnu system linux-initrd))
 
 (operating-system
   (kernel linux)
   (firmware (list linux-firmware))
+  (initrd microcode-initrd)
   (locale "en_US.utf8")
   (timezone "America/New_York")
   (keyboard-layout (keyboard-layout "us"
@@ -46,21 +48,18 @@
     ;; TODO check if any of these packages are included from the services
     (list bluez
           bluez-alsa
-          emacs
           fontconfig
           font-gnu-freefont
           font-google-noto
           git
           nss-certs
           openssh
-          pulseaudio
-          stumpwm
-          tree
-          xterm)
+          pulseaudio)
     %base-packages))
   (services
    (append
     (list (service gnome-desktop-service-type)
+          ;; FIXME noting this does not seem to be sufficient
           (bluetooth-service #:auto-enable? #t)
           (set-xorg-configuration
            (xorg-configuration

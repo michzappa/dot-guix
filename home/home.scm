@@ -4,20 +4,25 @@
              (gnu packages admin)
              (gnu packages agda)
              (gnu packages ebook)
+             (gnu packages emacs)
              (gnu packages emacs-xyz)
              (gnu packages gnuzilla)
+             (gnu packages lisp-xyz)
              (gnu packages package-management)
              (gnu packages rust-apps)
              (gnu packages web-browsers)
+             (gnu packages wm)
+             (gnu packages xorg)
              (mz-guix packages rust-apps))
 
-;; TODO can I have other manifests add packages? to tie closer to a foreign
-;; installation
-;; TODO stumpwm contrib packages, package the volume control and
-;; add to stump config
+;; TODO define public lists of semantically grouped package, use the
+;; appropriate lists here, following 'John Soo's config
+;; TODO stumpwm contrib
+;; packages, package the volume control and add to stump config
 (home-environment
  (packages (list agda
                  calibre
+                 emacs
                  emacs-agda2-mode
                  emacs-geiser
                  emacs-guix
@@ -27,7 +32,11 @@
                  neofetch
                  nyxt
                  ripgrep
-                 spotifyd))
+                 sbcl-slynk
+                 spotifyd
+                 stumpwm
+                 tree
+                 xterm))
  (services
   (list
    (service home-bash-service-type
