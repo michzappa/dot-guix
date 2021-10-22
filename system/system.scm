@@ -46,20 +46,19 @@
   (packages
    (append
     ;; TODO check if any of these packages are included from the services
-    (list bluez
-          bluez-alsa
-          fontconfig
+    (list fontconfig
           font-gnu-freefont
           font-google-noto
           git
           nss-certs
           openssh
-          pulseaudio)
+          pulseaudio
+          stumpwm+slynk)
     %base-packages))
   (services
    (append
     (list (service gnome-desktop-service-type)
-          ;; FIXME noting this does not seem to be sufficient
+          ;; FIXME noting this does not seem to be sufficient on my xps9570
           (bluetooth-service #:auto-enable? #t)
           (set-xorg-configuration
            (xorg-configuration

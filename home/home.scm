@@ -6,10 +6,13 @@
              (gnu packages ebook)
              (gnu packages emacs)
              (gnu packages emacs-xyz)
+             (gnu packages gnome)
              (gnu packages gnuzilla)
+             (gnu packages linux)
              (gnu packages lisp-xyz)
              (gnu packages package-management)
              (gnu packages rust-apps)
+             (gnu packages vpn)
              (gnu packages web-browsers)
              (gnu packages wm)
              (gnu packages xorg)
@@ -21,20 +24,25 @@
 ;; packages, package the volume control and add to stump config
 (home-environment
  (packages (list agda
+                 alsa-plugins
+                 alsa-utils
                  calibre
                  emacs
                  emacs-agda2-mode
+                 emacs-bluetooth
                  emacs-geiser
                  emacs-guix
                  emacs-vterm
                  flatpak
-                 icecat
+                 gnome-tweaks
+                 ;; icecat
                  neofetch
                  nyxt
+                 protonvpn-cli
                  ripgrep
                  sbcl-slynk
                  spotifyd
-                 stumpwm
+                 stow
                  tree
                  xterm))
  (services
