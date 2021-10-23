@@ -8,9 +8,11 @@
              (gnu packages emacs-xyz)
              (gnu packages gnome)
              (gnu packages gnuzilla)
+             (gnu packages libreoffice)
              (gnu packages linux)
              (gnu packages lisp-xyz)
              (gnu packages package-management)
+             (gnu packages pdf)
              (gnu packages rust-apps)
              (gnu packages vpn)
              (gnu packages web-browsers)
@@ -18,16 +20,13 @@
              (gnu packages xorg)
              (mz-guix packages rust-apps))
 
-;; TODO define public lists of semantically grouped package, use the
-;; appropriate lists here, following 'John Soo's config
-;; TODO stumpwm contrib
-;; packages, package the volume control and add to stump config
 (home-environment
  (packages (list agda
                  alsa-plugins
                  alsa-utils
                  calibre
                  emacs
+                 emacs-pdf-tools
                  emacs-agda2-mode
                  emacs-bluetooth
                  emacs-geiser
@@ -35,15 +34,15 @@
                  emacs-vterm
                  flatpak
                  gnome-tweaks
-                 ;; icecat
+                 libreoffice
                  neofetch
                  nyxt
                  protonvpn-cli
                  ripgrep
-                 sbcl-slynk
                  spotifyd
                  stow
                  tree
+                 xournalpp
                  xterm))
  (services
   (list

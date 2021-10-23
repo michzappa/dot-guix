@@ -17,12 +17,14 @@
  (gnu packages web-browsers)
  (gnu packages wm)
  (gnu packages xorg)
+ (gnu services base)
  (gnu services desktop)
  (gnu services networking)
  (gnu services ssh)
  (gnu services xorg)
  (gnu system keyboard)
  (gnu system file-systems)
+ (guix gexp)
  (nongnu packages linux)
  (nongnu system linux-initrd))
 
@@ -45,15 +47,12 @@
                 %base-user-accounts))
   (packages
    (append
-    ;; TODO check if any of these packages are included from the services
     (list fontconfig
           font-gnu-freefont
           font-google-noto
           git
           nss-certs
-          openssh
-          pulseaudio
-          stumpwm+slynk)
+          openssh)
     %base-packages))
   (services
    (append
@@ -63,7 +62,18 @@
           (set-xorg-configuration
            (xorg-configuration
             (keyboard-layout keyboard-layout))))
-    %desktop-services))
+    (modify-services %desktop-services
+      (guix-service-type config =>
+                         (guix-configuration
+                          (inherit config)
+                          (substitute-urls
+                           (append
+                            %default-substitute-urls
+                            (list "https://mirror.brielmaier.net")))
+                          (authorized-keys
+                           (append
+                            (list (local-file "mirror.brielmaier.net.pub"))
+                            %default-authorized-guix-keys)))))))
   (bootloader
    (bootloader-configuration
     (bootloader grub-efi-bootloader)
