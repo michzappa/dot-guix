@@ -18,6 +18,7 @@
              (gnu packages web-browsers)
              (gnu packages wm)
              (gnu packages xorg)
+             (guix gexp)
              (mz-guix packages rust-apps))
 
 (home-environment
@@ -49,14 +50,11 @@
    (service home-bash-service-type
             (home-bash-configuration
              (guix-defaults? #t)
-             (environment-variables '(("EDITOR" . "\"emacsclient -t\"")
-                                      ("VISUAL" . "\"emacsclient -c\"")
-                                      ("EMACSLOADPATH" . "$HOME/.guix-home/profile/share/emacs/site-lisp:$EMACSLOADPATH")
-                                      ("XDG_DATA_DIRS" . "$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS")))
-
-             ;; TODO why does this not work anymore?
-             ;; (bashrc '("\
-;; alias reconfigure-system-xps=\"sudo guix system reconfigure $HOME/.config/guix/system/xps.scm\"
-;; alias reconfigure-system-vbox=\"sudo guix system reconfigure $HOME/.config/guix/system/vbox.scm\"
-;; alias reconfigure-home=\"guix home reconfigure $HOME/.config/guix/home/home.scm\""))
-             )))))
+             (environment-variables
+              '(("EDITOR" . "\"emacsclient -t\"")
+                ("VISUAL" . "\"emacsclient -c\"")
+                ("EMACSLOADPATH" . "$HOME/.guix-home/profile/share/emacs/site-lisp:$EMACSLOADPATH")
+                ("XDG_DATA_DIRS" . "$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS")))
+             (bashrc
+              (list
+               (local-file "bashrc"))))))))
