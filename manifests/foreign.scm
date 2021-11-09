@@ -8,11 +8,14 @@
     "nyxt"
     "ripgrep"
     "spotifyd"
-    "stow")
+    "stow"
+    "texlive")
 
   ;; emacs
-  '("emacs"
+  '("emacs-native-comp"
     "emacs-agda2-mode"
-    "emacs-guix"
+    "emacs-auctex"
     "emacs-geiser"
+    "emacs-guix"
+    "emacs-pdf-tools"
     "emacs-vterm")))
