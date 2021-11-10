@@ -8,7 +8,9 @@
  (gnu packages emacs)
  (gnu packages fontutils)
  (gnu packages fonts)
+ (gnu packages gnome)
  (gnu packages gnuzilla)
+ (gnu packages ibus)
  (gnu packages linux)
  (gnu packages lisp)
  (gnu packages pulseaudio)
@@ -47,10 +49,16 @@
                 %base-user-accounts))
   (packages
    (append
-    (list fontconfig
+    (list emacs
+          fontconfig
           font-gnu-freefont
           font-google-noto
           git
+          gnome-tweaks
+          ibus
+          ibus-anthy
+          ibus-libpinyin
+          ibus-rime
           nss-certs
           openssh)
     %base-packages))
@@ -63,6 +71,7 @@
            (xorg-configuration
             (keyboard-layout keyboard-layout))))
     (modify-services %desktop-services
+      ;; add a substitute server for a subset of nonguix
       (guix-service-type config =>
                          (guix-configuration
                           (inherit config)

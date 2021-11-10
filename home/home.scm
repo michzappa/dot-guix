@@ -19,6 +19,7 @@
              (gnu packages wm)
              (gnu packages xorg)
              (guix gexp)
+             (flat packages emacs)
              (mz-guix packages rust-apps))
 
 (home-environment
@@ -26,15 +27,14 @@
                  alsa-plugins
                  alsa-utils
                  calibre
-                 emacs
-                 emacs-pdf-tools
+                 emacs-native-comp
                  emacs-agda2-mode
                  emacs-bluetooth
                  emacs-geiser
                  emacs-guix
+                 emacs-pdf-tools
                  emacs-vterm
                  flatpak
-                 gnome-tweaks
                  libreoffice
                  neofetch
                  nyxt
@@ -51,10 +51,14 @@
             (home-bash-configuration
              (guix-defaults? #t)
              (environment-variables
-              '(("EDITOR" . "\"emacsclient -t\"")
-                ("VISUAL" . "\"emacsclient -c\"")
+              '(("EDITOR" . "\"emacsclient -t -a \"")
+                ("VISUAL" . "\"emacsclient -c -a \"")
                 ("EMACSLOADPATH" . "$HOME/.guix-home/profile/share/emacs/site-lisp:$EMACSLOADPATH")
-                ("XDG_DATA_DIRS" . "$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS")))
+                ("XDG_DATA_DIRS" . "$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS")
+                ("GUIX_GTK3_IM_MODULE_FILE" . "$HOME/.guix-profile/lib/gtk-3.0/3.0.0/immodules-gtk3.cache")
+                ("GTK_IM_MODULE" . "xim")
+                ("QT_IM_MODULE" . "xim")
+                ("XMODIFIERS" . "@im=ibus")))
              (bashrc
               (list
                (local-file "bashrc"))))))))
