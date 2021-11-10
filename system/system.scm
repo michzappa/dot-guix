@@ -32,21 +32,26 @@
 
 (operating-system
   (kernel linux)
-  (firmware (list linux-firmware))
+  (firmware
+   (list linux-firmware))
   (initrd microcode-initrd)
   (locale "en_US.utf8")
   (timezone "America/New_York")
-  (keyboard-layout (keyboard-layout "us"
-                                    #:options '("ctrl:nocaps")))
+  (keyboard-layout
+   (keyboard-layout "us"
+                    #:options
+                    '("ctrl:nocaps")))
   (host-name "ordenagailu")
-  (users (cons* (user-account
-                 (name "michael")
-                 (comment "Michael Zappa")
-                 (group "users")
-                 (home-directory "/home/michael")
-                 (supplementary-groups
-                  '("wheel" "netdev" "audio" "video" "lp")))
-                %base-user-accounts))
+  (users
+   (cons*
+    (user-account
+     (name "michael")
+     (comment "Michael Zappa")
+     (group "users")
+     (home-directory "/home/michael")
+     (supplementary-groups
+      '("wheel" "netdev" "audio" "video" "lp")))
+    %base-user-accounts))
   (packages
    (append
     (list emacs
@@ -64,12 +69,13 @@
     %base-packages))
   (services
    (append
-    (list (service gnome-desktop-service-type)
-          ;; FIXME noting this does not seem to be sufficient on my xps9570
-          (bluetooth-service #:auto-enable? #t)
-          (set-xorg-configuration
-           (xorg-configuration
-            (keyboard-layout keyboard-layout))))
+    (list
+     (service gnome-desktop-service-type)
+     ;; FIXME noting this does not seem to be sufficient on my xps9570
+     (bluetooth-service #:auto-enable? #t)
+     (set-xorg-configuration
+      (xorg-configuration
+       (keyboard-layout keyboard-layout))))
     (modify-services %desktop-services
       ;; add a substitute server for a subset of nonguix
       (guix-service-type config =>
@@ -81,23 +87,28 @@
                             (list "https://mirror.brielmaier.net")))
                           (authorized-keys
                            (append
-                            (list (local-file "mirror.brielmaier.net.pub"))
+                            (list
+                             (local-file "mirror.brielmaier.net.pub"))
                             %default-authorized-guix-keys)))))))
   (bootloader
    (bootloader-configuration
     (bootloader grub-efi-bootloader)
-    (targets (list "/boot/efi"))
+    (targets
+     (list "/boot/efi"))
     (keyboard-layout keyboard-layout)))
   (swap-devices
-   (list (file-system-label "swap")))
+   (list
+    (file-system-label "swap")))
   (file-systems
-   (cons* (file-system
-            (mount-point "/boot/efi")
-            (device (file-system-label "boot"))
-            (type "vfat"))
-          (file-system
-            (mount-point "/")
-            (device
-             (file-system-label "root"))
-            (type "ext4"))
-          %base-file-systems)))
+   (cons*
+    (file-system
+      (mount-point "/boot/efi")
+      (device
+       (file-system-label "boot"))
+      (type "vfat"))
+    (file-system
+      (mount-point "/")
+      (device
+       (file-system-label "root"))
+      (type "ext4"))
+    %base-file-systems)))
