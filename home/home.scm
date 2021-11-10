@@ -37,6 +37,7 @@
         emacs-pdf-tools
         emacs-vterm
         flatpak
+        gnome-tweaks
         libreoffice
         neofetch
         nyxt

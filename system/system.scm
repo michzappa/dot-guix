@@ -8,7 +8,6 @@
  (gnu packages emacs)
  (gnu packages fontutils)
  (gnu packages fonts)
- (gnu packages gnome)
  (gnu packages gnuzilla)
  (gnu packages ibus)
  (gnu packages linux)
@@ -59,9 +58,9 @@
           font-gnu-freefont
           font-google-noto
           git
-          gnome-tweaks
           ibus
           ibus-anthy
+          ibus-libhangul
           ibus-libpinyin
           ibus-rime
           nss-certs
