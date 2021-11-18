@@ -56,8 +56,12 @@
              (environment-variables
               '(("EDITOR" . "\"emacsclient -t -a \"")
                 ("VISUAL" . "\"emacsclient -c -a \"")
+                ;; load guix-home emacs packages
                 ("EMACSLOADPATH" . "$HOME/.guix-home/profile/share/emacs/site-lisp:$EMACSLOADPATH")
+                ;; flatpak
                 ("XDG_DATA_DIRS" . "$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS")
+                ("XDG_DATA_DIRS" . "/var/lib/flatpak/exports/share:$XDG_DATA_DIRS")
+                ;; ibus
                 ("GUIX_GTK3_IM_MODULE_FILE" . "$HOME/.guix-profile/lib/gtk-3.0/3.0.0/immodules-gtk3.cache")
                 ("GTK_IM_MODULE" . "xim")
                 ("QT_IM_MODULE" . "xim")
