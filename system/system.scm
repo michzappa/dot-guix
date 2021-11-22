@@ -59,8 +59,6 @@
           font-google-noto
           git
           ibus
-          ibus-anthy
-          ibus-libhangul
           ibus-libpinyin
           ibus-rime
           nss-certs
