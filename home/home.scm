@@ -26,8 +26,6 @@
 (home-environment
  (packages
   (list agda
-        alsa-plugins
-        alsa-utils
         calibre
         emacs-native-comp
         emacs-agda2-mode
