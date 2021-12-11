@@ -2,3 +2,6 @@
 # bashrc configuration for guix system specifically
 alias reconfigure-system="sudo guix system reconfigure $HOME/.config/guix/system/system.scm"
 alias reconfigure-home="guix home reconfigure $HOME/.config/guix/home/home.scm"
+
+# general bashrc config for me
+alias ec="emacsclient -t -a \"\""
