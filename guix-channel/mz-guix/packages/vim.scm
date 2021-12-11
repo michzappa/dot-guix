@@ -39,11 +39,11 @@ It can build a concrete syntax tree for a source file and efficiently update
 the syntax tree as the source file is edited.")
     (license license:expat)))
 
-(define-public neovim-0.5.1
+(define-public neovim-0.6.0
   (package
     (inherit neovim)
     (name "neovim")
-    (version "0.5.1")
+    (version "0.6.0")
     (source
      (origin
        (method git-fetch)
@@ -52,7 +52,7 @@ the syntax tree as the source file is edited.")
              (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "1d2s9amy0alh7abn998ixwi6nd7whnpzmixkyqdk76zify0v631x"))))
+        (base32 "1iyyj07gz6997h7ndzqgnf0hjid23d48i11a83f8ynms5jh9jymi"))))
     (inputs
      (cons `("tree-sitter" ,tree-sitter)
            (package-inputs neovim)))))
