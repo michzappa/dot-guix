@@ -1,93 +1,35 @@
 (use-modules
- (gnu home)
+ (guix gexp)
+ (flat packages emacs)
  (gnu home services)
  (gnu home services shells)
- (gnu packages admin)
  (gnu packages agda)
+ (gnu packages admin)
  (gnu packages ebook)
  (gnu packages emacs)
  (gnu packages emacs-xyz)
  (gnu packages gnome)
- (gnu packages ibus)
- (gnu packages libreoffice)
- (gnu packages linux)
- (gnu packages lisp-xyz)
- (gnu packages package-management)
  (gnu packages pdf)
  (gnu packages rust-apps)
- (gnu packages vpn)
- (gnu packages web-browsers)
- (gnu packages wm)
- (gnu packages xorg)
- (guix gexp)
- (flat packages emacs)
- (mz-guix packages rust-apps)
+ (mz-guix packages spotifyd)
  (nongnu packages mozilla))
 
 (home-environment
  (packages
   (list agda
         calibre
-        emacs-native-comp
+        emacs-pgtk-native-comp
         emacs-agda2-mode
-        emacs-all-the-icons
-        emacs-auctex
-        ;; emacs-auto-compile
-        emacs-avy
-        emacs-bluetooth
-        ;; emacs-clipetty
-        ;; emacs-company-ctags
-        emacs-company
-        emacs-consult
-        emacs-ctrlf
-        emacs-dashboard
-        emacs-default-text-scale
-        emacs-exec-path-from-shell
-        emacs-expand-region
-        ;; emacs-format-all
         emacs-geiser
-        emacs-general
-        emacs-git-gutter
-        emacs-go-mode
         emacs-guix
-        emacs-hl-todo
-        emacs-kbd
-        emacs-magit
-        emacs-marginalia
-        emacs-markdown-mode
-        emacs-minions
-        emacs-modus-themes
-        emacs-nix-mode
-        emacs-no-littering
-        emacs-nov-el
-        emacs-org-bullets
         emacs-pdf-tools
-        emacs-rainbow-delimiters
-        emacs-selectrum
-        ;; emacs-selectrum-prescient
-        emacs-sly
-        emacs-smartparens
-        ;; tree-sitter? maybe someday
-        emacs-undo-tree
-        emacs-use-package
         emacs-vterm
-        emacs-web-mode
-        emacs-which-key
-        ;; emacs-whole-line-or-region
-        emacs-yaml-mode
         firefox
-        flatpak
         gnome-tweaks
-        libreoffice
-        neofetch
-        nyxt
-        protonvpn-cli
         ripgrep
         spotifyd
-        stow
         tree
-        xournalpp
-        xterm))
+        xournalpp))
  (services
   (list
    (service home-bash-service-type

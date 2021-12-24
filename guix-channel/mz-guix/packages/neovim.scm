@@ -1,4 +1,4 @@
-(define-module (mz-guix packages vim)
+(define-module (mz-guix packages neovim)
   #:use-module (gnu packages vim)
   #:use-module (guix build-system gnu)
   #:use-module (guix git-download)
