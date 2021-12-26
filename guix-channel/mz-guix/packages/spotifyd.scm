@@ -2654,6 +2654,8 @@ including support for AES in counter mode (a.k.a.  AES-CTR)
     (description "Thin but safe wrappers for ALSA (Linux sound API)")
     (license (list license:asl2.0 license:expat))))
 
+;; FIXME not really figured out alsa plugins on foreign installations,
+;; particularly pipewire on fedora
 (define-public spotifyd
   (package
     (name "spotifyd")
@@ -2669,13 +2671,10 @@ including support for AES in counter mode (a.k.a.  AES-CTR)
     (native-inputs
      `(("pkg-config" ,pkg-config)))
     (inputs
-     ;; alsa-lib with the pulseaudio plugin built it
      `(("alsa-lib" ,alsa-lib)
-       ("alsa-plugins" ,alsa-plugins)
        ("openssl" ,openssl)))
     (arguments
-     `(;;#:rust ,rust-1.52
-       #:cargo-inputs
+     `(#:cargo-inputs
        (("rust-alsa" ,rust-alsa-0.3)
         ("rust-chrono" ,rust-chrono-0.4)
         ("rust-color-eyre" ,rust-color-eyre-0.5)
