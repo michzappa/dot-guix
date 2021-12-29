@@ -2672,6 +2672,8 @@ including support for AES in counter mode (a.k.a.  AES-CTR)
      `(("pkg-config" ,pkg-config)))
     (inputs
      `(("alsa-lib" ,alsa-lib)
+       ("alsa-plugins" ,alsa-plugins)
+       ("pipewire" ,pipewire)
        ("openssl" ,openssl)))
     (arguments
      `(#:cargo-inputs
