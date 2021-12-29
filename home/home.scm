@@ -18,7 +18,7 @@
  (packages
   (list agda
         calibre
-        emacs-pgtk-native-comp
+        emacs-native-comp
         emacs-agda2-mode
         emacs-geiser
         emacs-guix

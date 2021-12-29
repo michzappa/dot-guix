@@ -3,6 +3,7 @@
  (append
   ;; misc
   '("agda"
+    "f1viewer"
     "guile"
     "glibc-locales"
     "ripgrep"
@@ -10,7 +11,7 @@
     "texlive")
 
   ;; emacs
-  '("emacs-pgtk-native-comp"
+  '("emacs-native-comp"
     "emacs-agda2-mode"
     "emacs-geiser"
     "emacs-guix"
