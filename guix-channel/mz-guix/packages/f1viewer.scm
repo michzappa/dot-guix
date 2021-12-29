@@ -265,9 +265,7 @@ Standard Annex #29 (@url{http://unicode.org/reports/tr29/,http://unicode.org/rep
         (sha256
           (base32 "1pkznhzcssxbiskgdyrrk3d3wxvhrlxrii2fknyxz5zqdr8d3rgd"))))
     (build-system go-build-system)
-    (arguments '(#:import-path "github.com/SoMuchForSubtlety/f1viewer/v2"
-                 #:install-source? #f
-                 ))
+    (arguments '(#:import-path "github.com/SoMuchForSubtlety/f1viewer"))
     (propagated-inputs
       `(("go-github-com-rivo-tview" ,go-github-com-rivo-tview)
         ("go-gopkg-in-check-v1" ,go-gopkg-in-check-v1)
