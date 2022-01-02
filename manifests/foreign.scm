@@ -2,17 +2,22 @@
 (specifications->manifest
  (append
   ;; misc
-  '("agda"
-    "f1viewer"
+  '("f1viewer"
     "guile"
     "glibc-locales"
+    "nyxt"
     "ripgrep"
     "spotifyd"
+    "stow"
     "texlive")
+
+  ;; guile
+  '("guile"
+    "guile-readline"
+    "guile-colorized")
 
   ;; emacs
   '("emacs-native-comp"
-    "emacs-agda2-mode"
     "emacs-geiser"
     "emacs-guix"
     "emacs-pdf-tools"
