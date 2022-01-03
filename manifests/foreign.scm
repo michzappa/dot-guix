@@ -5,8 +5,11 @@
   '("f1viewer"
     "guile"
     "glibc-locales"
+    "haunt"
+    "mpv"
     "nyxt"
     "ripgrep"
+    "sbcl"
     "spotifyd"
     "stow"
     "texlive")
