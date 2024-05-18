@@ -1,4 +1,4 @@
-(define-module (mz system machines vbox)
+(define-module (mz machines vbox-sd)
   #:use-module (gnu bootloader)
   #:use-module (gnu bootloader grub)
 
