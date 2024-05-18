@@ -24,6 +24,7 @@
      (uri (git-reference
            (url home-page)
            (commit (string-append "v" version))))
+     (file-name (git-file-name name version))
      (sha256
       (base32 "1ny0vfvfxzrvd0csazzwi6iprz4rgkmh5fqmxhrxb00rvyn16sbm"))))
    (build-system dune-build-system)
@@ -42,6 +43,7 @@
      (uri (git-reference
            (url home-page)
            (commit version)))
+     (file-name (git-file-name name version))
      (sha256
       (base32 "0m1ldah5r9gcq09d9jh8lhvr77910dygx5m309k1jm60ah9mdcab"))))
    (build-system ocaml-build-system)
@@ -64,6 +66,7 @@
      (uri (git-reference
            (url home-page)
            (commit version)))
+     (file-name (git-file-name name version))
      (sha256
       (base32 "0c5l1pbwcvj0ak7fc6adp5jgh83p4bc9qgx4rfnzyc24dn8gllrf"))))
    (build-system dune-build-system)
@@ -86,6 +89,7 @@
      (uri (git-reference
            (url home-page)
            (commit version)))
+     (file-name (git-file-name name version))
      (sha256
       (base32 "1p75x5yqwbwv8yb2gz15rfl3znipy59r45d1f4vcjdghhjws6q2a"))))
    (build-system dune-build-system)
@@ -105,6 +109,7 @@
      (uri (git-reference
            (url home-page)
            (commit (string-append "opam-" version))))
+     (file-name (git-file-name name version))
      (sha256
       (base32 "1nyfpylky6pi4c9nna5r31zrkccl1lynpzcm9d8nrn52icq3rsp5"))))
    (build-system ocaml-build-system)
